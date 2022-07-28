@@ -14,7 +14,7 @@ const getNameRecipe = () => {
     });
 };
 const searchBar = document.getElementById("searchIcon");
-searchBar.addEventListener("click", getNameRecipe());
+// searchBar.addEventListener("click", getNameRecipe());
 
 //TODO:Filtering out the recipe
 
@@ -39,6 +39,20 @@ const getListOfRecipe = () => {
   );
  
 }
-getListOfRecipe();
+// getListOfRecipe();
 
+//TODO:Create random number
+//FIXME:The output not show the random number
+const randomId = () => {
+  const numbersOfRecipe = 4000;
+  return Math.floor(Math.random() * numbersOfRecipe);
+}
+randomId();
 
+const getName = (randomId) => {
+  const recipeNames = fetch(
+    `https://api.spoonacular.com/recipes/714627/information?apiKey=${apiKey}&includeNutrition=false`
+  );
+  recipeNames.then(response => response.json()).then(names => console.log(names.title))
+}
+//TODO:Get the name of the recipe from random number
