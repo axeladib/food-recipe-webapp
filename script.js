@@ -23,14 +23,19 @@ const getListOfRecipe = () => {
   recipe.then(recipeObject => recipeObject.json()).then(recipeObject => {
     //FIXME:DATA STRUCTURE ARRAY
     //TODO:Get the images of the recipe
-    let imageOfRecipe = [];
+    let imagesOfRecipe = [];
     for (let i = 0; i < recipeObject.extendedIngredients.length; i++) {
-      imageOfRecipe.push(recipeObject.extendedIngredients[i].image);
+      imagesOfRecipe.push(recipeObject.extendedIngredients[i].image);
     }
-    // console.log(imageOfRecipe);
      // console.log(recipeObject.extendedIngredients[0].image);
+    imagesOfRecipe.map(image => {
+      console.log(image)
+      //FIXME:Cant display the iage becauyse of the API problem
+      document.querySelector(".recipe__card").innerHTML = `<img src=${image}/>`
+    })
   }
-  
+  //FIXME:Display the image of the recipe in the web app
+    
   );
  
 }
